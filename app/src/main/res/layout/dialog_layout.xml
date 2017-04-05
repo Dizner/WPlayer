@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".activity.FirstActivity" >
+
+    <TextView 
+        android:id="@+id/unamet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:text="username"
+        android:textSize="20sp"/>
+    <EditText 
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/unamet"
+        android:layout_alignBottom="@id/unamet"
+        android:layout_marginRight="20dp"
+        android:hint="usernamehint"
+        android:textSize="12sp"/>
+    <TextView 
+        android:id="@+id/upasst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/unamet"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:text="password"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/userpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/upasst"
+        android:layout_below="@id/unamet"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@id/upasst"
+        android:hint="userpasshint"
+        android:textSize="12sp" />
+
+</RelativeLayout>

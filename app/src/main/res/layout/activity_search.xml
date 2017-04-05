@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.jiaoyajing.dizner.wplayer.activity.SearchActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:padding="10dp">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/search_bg_grav">
+                    <LinearLayout
+                        android:id="@+id/ll_input_layout"
+                        android:layout_width="match_parent"
+                        android:visibility="invisible"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/et_input"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="请输入要搜索的歌曲名称"
+                            android:textColorHint="@color/garv_black"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:maxLines="1"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textColor="@color/write"
+                            android:gravity="center_vertical"
+                            android:textSize="16sp"
+                            android:background="@null"
+                            android:layout_height="wrap_content" />
+                        <ImageView
+                            android:id="@+id/iv_btn_search"
+                            android:layout_width="40dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/search_btn"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_btn_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@mipmap/search_btn" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="搜索"
+                            android:textColor="@color/write" />
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+            <org.jiaoyajing.dizner.wplayer.util.view.ListViewForScrollView
+                android:id="@+id/lv_net_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

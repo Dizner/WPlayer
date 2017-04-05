@@ -1,0 +1,170 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:lrc="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.PlayActivity">
+
+    <ImageView
+        android:id="@+id/iv_song_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3000"
+        android:scaleType="centerCrop"/>
+    <RelativeLayout
+        android:id="@+id/rl_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="#0000">
+
+        <ImageView
+            android:id="@+id/iv_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/baxk" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="@color/write"
+            android:textSize="16sp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title_layout"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/songname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/write"
+            android:text="Wplayer"
+            android:layout_marginBottom="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/songimags"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@color/garv"
+                android:padding="10dp"
+                android:scaleType="fitXY" />
+            <org.jiaoyajing.dizner.wplayer.util.LrcView
+                android:id="@+id/lrc_view"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                lrc:currentTextColor="@color/red"
+                lrc:normalTextColor="@color/write"
+                lrc:rows="5"
+                lrc:textSize="20sp"
+                lrc:dividerHeight="10dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_contral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <SeekBar
+                    android:id="@+id/skb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundTint="@color/red"
+                    android:progressBackgroundTint="@color/write"
+                    android:progressTint="@color/red"
+                    android:thumbTint="@color/red" />
+
+                <TextView
+                    android:id="@+id/sumtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/skb"
+                    android:textColor="@color/write"
+                    android:text="00:00" />
+
+                <TextView
+                    android:id="@+id/protime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/skb"
+                    android:textColor="@color/write"
+                    android:text="00:00" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/state"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignLeft="@+id/rl_contral"
+                android:layout_below="@+id/rl_contral"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/state_01sj" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_contral"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/prebtn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/pre_01" />
+                <ImageView
+                    android:id="@+id/startbtn"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@mipmap/start_01" />
+
+
+                <ImageView
+                    android:id="@+id/nextbtn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/next_01" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

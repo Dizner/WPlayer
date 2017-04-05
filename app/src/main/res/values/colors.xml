@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/garv</color>
+    <color name="colorPrimaryDark">@color/red</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="green">#00cc66</color>
+    <color name="red">#ce3d3a</color>
+    <color name="write">#ffffff</color>
+    <color name="tabNoSelect">#EBEBEB</color>
+    <color name="garv">#DEDEDE</color>
+    <color name="black">#000000</color>
+    <color name="garv_black">#9b9898</color>
+</resources>

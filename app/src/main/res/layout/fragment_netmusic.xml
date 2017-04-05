@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:id="@+id/tv_xinge"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="新歌榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_rege"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="热歌榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:id="@+id/tv_yaogun"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="摇滚榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_jueshi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="爵士"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:id="@+id/tv_liuxing"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="流行"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_oumei"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="欧美金曲榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:id="@+id/tv_jingdian"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="经典老歌榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_qingge"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="情歌对唱榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:id="@+id/tv_yingshi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="影视金曲榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_wangluo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/garv"
+                android:gravity="center"
+                android:text="网络歌曲榜"
+                android:textColor="@color/write"
+                android:textSize="28sp" />
+        </LinearLayout>
+    <org.jiaoyajing.dizner.wplayer.util.view.ListViewForScrollView
+        android:id="@+id/lfv_tuijain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

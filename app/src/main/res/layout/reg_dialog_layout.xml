@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/l_bottom_layout"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <EditText
+            android:id="@+id/et_input_name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/input_bg"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:hint="请输入用户名"
+            android:textSize="14sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <EditText
+            android:id="@+id/et_input_pass"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:inputType="textPassword"
+            android:background="@drawable/input_bg"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:hint="请输入密码"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <EditText
+            android:id="@+id/et_input_pass2"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:inputType="textPassword"
+            android:background="@drawable/input_bg"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:hint="请再次输入密码"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="10dp"
+            android:text="请注意，本注册提示只在第一次打开软件时提示，使用本软件必须登陆，请谨慎选择！" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/v_lines"
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="#5000" />
+
+            <TextView
+                android:id="@+id/tv_dialog_lift_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#111" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_dialog_right_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="#fff" />
+    </LinearLayout>
+</RelativeLayout>
