@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener, Theme
     @BindView(R.id.lv_lists)
     ListViewForScrollView lvLists;
     private MainActivity mainActivity;
-    private LocalListFragment listFragment;
+    private LocalListActivity listFragment;
     private AlertDialog dialog;
     private List<MusicListBean> list;
     private ListsAdapter adapter;
@@ -105,7 +105,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener, Theme
         View view = inflater.inflate(R.layout.home_layout, container, false);
         ButterKnife.bind(this, view);
         mRollView.setAdapter(new TestLoopAdapter(mRollView));
-        listFragment = new LocalListFragment();
+        listFragment = new LocalListActivity();
         initView();
         setData();
         return view;
@@ -157,22 +157,28 @@ public class HomeFragment extends Fragment implements OnItemClickListener, Theme
 
     @OnClick({R.id.ll_btn_local_list, R.id.ll_btn_all_list, R.id.ll_btn_like, R.id.ll_btn_history, R.id.ll_btn_new_list})
     public void onClick(View view) {
+        Intent intent = intent = new Intent();;
         switch (view.getId()) {
+            //本地列表
             case R.id.ll_btn_local_list:
-                Log.d("home", "-----" + mainActivity);
-                mainActivity.switchFragment(mainActivity.FRAGMENT_TAG_LOCALLOST);
-//                getFragmentManager().beginTransaction().add(listFragment,"1").hide(this).show(listFragment);
+                intent.setClass(getContext(),LocalListActivity.class);
+                intent.putExtra("tag","all");
+                startActivity(intent);
                 break;
             case R.id.ll_btn_all_list:
                 mainActivity.switchFragment(mainActivity.FRAGMENT_TAG_ALLLIST_LIST);
                 break;
             //收藏
             case R.id.ll_btn_like:
-                mainActivity.switchFragment(mainActivity.FRAGMENT_TAG_LIKE_LIST);
+                intent.setClass(getContext(),LocalListActivity.class);
+                intent.putExtra("tag","like");
+                startActivity(intent);
                 break;
             //播放历史
             case R.id.ll_btn_history:
-                mainActivity.switchFragment(mainActivity.FRAGMENT_TAG_HISTORY_LIST);
+                intent.setClass(getContext(),LocalListActivity.class);
+                intent.putExtra("tag","history");
+                startActivity(intent);
                 break;
             //新建列表
             case R.id.ll_btn_new_list:

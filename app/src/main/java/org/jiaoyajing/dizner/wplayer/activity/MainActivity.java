@@ -27,7 +27,6 @@ import org.jiaoyajing.dizner.wplayer.R;
 import org.jiaoyajing.dizner.wplayer.adapter.MainPagerAdapter;
 import org.jiaoyajing.dizner.wplayer.fragment.AllListFragment;
 import org.jiaoyajing.dizner.wplayer.fragment.HomeFragment;
-import org.jiaoyajing.dizner.wplayer.fragment.LocalListFragment;
 import org.jiaoyajing.dizner.wplayer.fragment.MainFragment;
 import org.jiaoyajing.dizner.wplayer.fragment.NetMusicFragment;
 import org.jiaoyajing.dizner.wplayer.fragment.SearchFragment;
@@ -140,29 +139,11 @@ public class MainActivity extends BaseActiyvity implements ThemeImpl {
 //        netMusicFragment = NetMusicFragment.newInstance();
         mainFragment = new MainFragment();
         up = mainFragment;
-        LocalListFragment localListFragment = new LocalListFragment();
-        LocalListFragment likeListFragment = new LocalListFragment();
-        Bundle argslike = new Bundle();
-        argslike.putString("tag", "like");
-        likeListFragment.setArguments(argslike);
-        LocalListFragment historyListFragment = new LocalListFragment();
-        Bundle argshistory = new Bundle();
-        argshistory.putString("tag", "history");
-        historyListFragment.setArguments(argshistory);
         SearchFragment searchFragment = new SearchFragment();
         AllListFragment allListFragment = new AllListFragment();
         fragmentMap.put(FRAGMENT_TAG_MAIN, mainFragment);
-        fragmentMap.put(FRAGMENT_TAG_LOCALLOST, localListFragment);
         fragmentMap.put(FRAGMENT_TAG_SEARCH, searchFragment);
-        fragmentMap.put(FRAGMENT_TAG_LIKE_LIST, likeListFragment);
-        fragmentMap.put(FRAGMENT_TAG_HISTORY_LIST, historyListFragment);
         fragmentMap.put(FRAGMENT_TAG_ALLLIST_LIST, allListFragment);
-//        fragmentList.add(mainFragment);
-//        fragmentList.add(localListFragment);
-//        fragmentList.add(searchFragment);
-//        fragmentList.add(likeListFragment);
-//        fragmentList.add(historyListFragment);
-//        fragmentList.add(allListFragment);
         getSupportFragmentManager().beginTransaction().add(R.id.ll_tmp, fragmentMap.get(FRAGMENT_TAG_MAIN)).commit();
 //        list = new ArrayList<>();
 //        list.add(homeFragment);
@@ -249,6 +230,11 @@ public class MainActivity extends BaseActiyvity implements ThemeImpl {
     @Override
     public void getSelf(List<BaseActiyvity> list) {
         list.add(this);
+    }
+
+    @Override
+    public void rmSelf(List<BaseActiyvity> list) {
+        list.remove(this);
     }
 
     @OnClick({R.id.prebtu, R.id.startbtu, R.id.nextbtu, R.id.songimg})

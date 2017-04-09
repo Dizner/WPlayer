@@ -49,4 +49,9 @@ public class ListsActivity extends BaseActiyvity {
     public void getSelf(List<BaseActiyvity> list) {
         list.add(this);
     }
+
+    @Override
+    public void rmSelf(List<BaseActiyvity> list) {
+        list.remove(this);
+    }
 }

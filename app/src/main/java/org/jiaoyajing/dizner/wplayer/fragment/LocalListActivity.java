@@ -1,20 +1,24 @@
-package org.jiaoyajing.dizner.wplayer.activity;
+package org.jiaoyajing.dizner.wplayer.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import org.jiaoyajing.dizner.wplayer.R;
-import org.jiaoyajing.dizner.wplayer.fragment.ItemFragment;
+import org.jiaoyajing.dizner.wplayer.activity.BaseActiyvity;
+import org.jiaoyajing.dizner.wplayer.activity.PlayActivity;
+import org.jiaoyajing.dizner.wplayer.adapter.MyMusicListAdapter;
 import org.jiaoyajing.dizner.wplayer.javabean.Mp3Info;
-import org.jiaoyajing.dizner.wplayer.util.ThemeImpl;
+import org.jiaoyajing.dizner.wplayer.util.Mp3Utils;
 
 import java.util.List;
 
@@ -22,11 +26,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class NetListActivity extends BaseActiyvity implements ThemeImpl {
+/**
+ * Created by Dizner on 2017/3/13.
+ */
 
-
-    @BindView(R.id.ll_tmp)
-    LinearLayout llTmp;
+public class LocalListActivity extends BaseActiyvity {
+    @BindView(R.id.iv_btn_back)
+    ImageView ivBtnBack;
+    @BindView(R.id.music_list)
+    ListView musiclist;
+    @BindView(R.id.tv_list_title)
+    TextView tvListTitle;
     @BindView(R.id.songimg)
     ImageView songimg;
     @BindView(R.id.musicname)
@@ -39,27 +49,27 @@ public class NetListActivity extends BaseActiyvity implements ThemeImpl {
     ImageView startbtu;
     @BindView(R.id.nextbtu)
     ImageView nextbtu;
+    private MyMusicListAdapter musicListAdapter;
+    private List<Mp3Info> mp3Infos;
+    private static String tag = "all";
 
-    private ItemFragment fragment;
-    private int type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_netlist);
+        setContentView(R.layout.mymusic_list);
         ButterKnife.bind(this);
-        type = getIntent().getIntExtra("type",1);
-        fragment = new ItemFragment();
-        Bundle args = new Bundle();
-        args.putInt("type",type);
-        fragment.setArguments(args);
-        getSupportFragmentManager().beginTransaction().replace(R.id.ll_tmp,fragment).commit();
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        bindPlayService();
+        tag = getIntent().getStringExtra("tag");
+        switch (tag) {
+            case "all":
+                tvListTitle.setText("全部列表");
+                break;
+            case "like":
+                tvListTitle.setText("我喜欢");
+                break;
+            case "history":
+                tvListTitle.setText("最近播放");
+                break;
+        }
     }
 
     private Handler myhandler = new Handler(){
@@ -104,7 +114,6 @@ public class NetListActivity extends BaseActiyvity implements ThemeImpl {
 
     }
 
-
     @Override
     public void getSelf(List<BaseActiyvity> list) {
         list.add(this);
@@ -115,25 +124,49 @@ public class NetListActivity extends BaseActiyvity implements ThemeImpl {
         list.remove(this);
     }
 
-    @Override
-    public void changeTheme(int themeMode) {
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        bindPlayService();
+        setData();
+    }
+
+    /**
+     * 获取本地歌曲
+     */
+    private void setData() {
+        mp3Infos = Mp3Utils.getMp3Info(this, tag);
+        musicListAdapter = new MyMusicListAdapter(this, mp3Infos, new MyMusicListAdapter.OnClick() {
+            @Override
+            public void click(int pos) {
+                playService.setMp3Infos(mp3Infos);
+                playService.play(pos);
+            }
+        });
+        Log.d("列表长度：", mp3Infos.size() + "");
+        if (mp3Infos.size() <= 0) {
+            Toast.makeText(this, "没有扫描到本地歌曲", Toast.LENGTH_LONG).show();
+        } else {
+            musiclist.setAdapter(musicListAdapter);
+        }
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public void onStop() {
+        super.onStop();
         unbindPlayService();
     }
 
-    @OnClick({R.id.songimg, R.id.prebtu, R.id.startbtu, R.id.nextbtu})
+    @OnClick({R.id.songimg, R.id.prebtu, R.id.startbtu, R.id.nextbtu,R.id.iv_btn_back})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.iv_btn_back:
+                finish();
+                break;
             //上一曲
             case R.id.prebtu:
                 playService.prev();
-                ThemeImpl theme = this;
-                theme.changeTheme(THEME_MODE_NIGHT);
                 break;
             //开始／puse_01
             case R.id.startbtu: {
@@ -167,4 +200,3 @@ public class NetListActivity extends BaseActiyvity implements ThemeImpl {
         }
     }
 }
-

@@ -25,10 +25,11 @@ public abstract class BaseActiyvity extends FragmentActivity {
     private boolean isBound = false;
     private OnBindSuccess onBind;
     private static List<BaseActiyvity> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        list= new ArrayList<>();
+        list = new ArrayList<>();
 //		startupDateUi();
     }
 
@@ -67,7 +68,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
         @Override
         public void onPublish(int progress, Mp3Info mp3) {
             for (BaseActiyvity actiyvity : list) {
-                actiyvity.publish(progress,mp3);
+                actiyvity.publish(progress, mp3);
             }
 //            publish(progress, mp3);
         }
@@ -96,9 +97,12 @@ public abstract class BaseActiyvity extends FragmentActivity {
     public abstract void change(int position);
 
     public abstract void getSelf(List<BaseActiyvity> list);
+    public abstract void rmSelf(List<BaseActiyvity> list);
 
     public void bindPlayService(OnBindSuccess onBind) {
         this.onBind = onBind;
+        getSelf(list);
+        Log.d("Activity数量", list.size() + "");
         if (!isBound) {
             Intent intent = new Intent(this, PlayServer.class);
             bindService(intent, conn, Context.BIND_AUTO_CREATE);
@@ -108,6 +112,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
 
     public void bindPlayService() {
         getSelf(list);
+        Log.d("Activity数量", list.size() + "");
         if (!isBound) {
             Intent intent = new Intent(this, PlayServer.class);
             bindService(intent, conn, Context.BIND_AUTO_CREATE);
@@ -116,6 +121,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
     }
 
     public void unbindPlayService() {//
+        rmSelf(list);
         if (isBound) {
             unbindService(conn);
             if (playService != null) {

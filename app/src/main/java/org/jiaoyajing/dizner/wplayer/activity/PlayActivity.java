@@ -292,6 +292,11 @@ public class PlayActivity extends BaseActiyvity implements OnClickListener, OnSe
         list.add(this);
     }
 
+    @Override
+    public void rmSelf(List<BaseActiyvity> list) {
+        list.remove(this);
+    }
+
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress,

@@ -96,6 +96,11 @@ public class SearchActivity extends BaseActiyvity {
         list.add(this);
     }
 
+    @Override
+    public void rmSelf(List<BaseActiyvity> list) {
+        list.remove(this);
+    }
+
     @OnClick({R.id.iv_btn_search, R.id.ll_btn_search})
     public void onClick(View view) {
         switch (view.getId()) {
