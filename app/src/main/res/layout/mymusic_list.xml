@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.LogoActivity">
     <RelativeLayout
+        android:id="@+id/rl_menu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/red">
@@ -27,8 +28,10 @@
             android:text="列表"/>
     </RelativeLayout>
     <ListView
+        android:layout_below="@+id/rl_menu"
         android:id="@+id/music_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/colors"/>
-</LinearLayout>
+
+</RelativeLayout>
