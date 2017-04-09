@@ -71,24 +71,8 @@ public class PlayActivity extends BaseActiyvity implements OnClickListener, OnSe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-////            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-//        }
         initView();
-//        setAnimation();
     }
-
-//    private void setAnimation() {
-//        an = new RotateAnimation(0, 359, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-//        an.setDuration(20000);
-//        an.setRepeatCount(-1);
-//        an.setInterpolator(new LinearInterpolator());
-//        an.setFillAfter(true);
-//        songimags.setAnimation(an);
-//
-//    }
 
     private void initView() {
         songname = (TextView) findViewById(R.id.songname);
@@ -105,7 +89,6 @@ public class PlayActivity extends BaseActiyvity implements OnClickListener, OnSe
         mp3Infos = Mp3Utils.getMp3Info(this);
         myhandler = new MyHandler(this);
         sbk.setProgress(0);
-        lrcView.setAnimation(lrcView.animate());
     }
 
     @Override
@@ -275,7 +258,6 @@ public class PlayActivity extends BaseActiyvity implements OnClickListener, OnSe
     public void change(int position) {
 
         first = true;
-
         Mp3Info mp3Info = playService.getMp3Infos().get(position);
         songname.setText(mp3Info.getTitle());
         sumtime.setText(Mp3Utils.formatTime(mp3Info.getDuration()));
@@ -306,8 +288,8 @@ public class PlayActivity extends BaseActiyvity implements OnClickListener, OnSe
     }
 
     @Override
-    public BaseActiyvity getSelf() {
-        return this;
+    public void getSelf(List<BaseActiyvity> list) {
+        list.add(this);
     }
 
 

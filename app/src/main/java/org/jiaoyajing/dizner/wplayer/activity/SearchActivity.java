@@ -90,9 +90,10 @@ public class SearchActivity extends BaseActiyvity {
 
     }
 
+
     @Override
-    public BaseActiyvity getSelf() {
-        return this;
+    public void getSelf(List<BaseActiyvity> list) {
+        list.add(this);
     }
 
     @OnClick({R.id.iv_btn_search, R.id.ll_btn_search})

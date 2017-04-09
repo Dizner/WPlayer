@@ -69,7 +69,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
             for (BaseActiyvity actiyvity : list) {
                 actiyvity.publish(progress,mp3);
             }
-            publish(progress, mp3);
+//            publish(progress, mp3);
         }
 
         @Override
@@ -95,7 +95,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
 
     public abstract void change(int position);
 
-    public abstract BaseActiyvity getSelf();
+    public abstract void getSelf(List<BaseActiyvity> list);
 
     public void bindPlayService(OnBindSuccess onBind) {
         this.onBind = onBind;
@@ -107,7 +107,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
     }
 
     public void bindPlayService() {
-        list.add(getSelf());
+        getSelf(list);
         if (!isBound) {
             Intent intent = new Intent(this, PlayServer.class);
             bindService(intent, conn, Context.BIND_AUTO_CREATE);
@@ -115,7 +115,7 @@ public abstract class BaseActiyvity extends FragmentActivity {
         }
     }
 
-    public void unbindPlayService() {//�Ӵ���
+    public void unbindPlayService() {//
         if (isBound) {
             unbindService(conn);
             if (playService != null) {

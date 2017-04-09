@@ -16,6 +16,8 @@ import org.jiaoyajing.dizner.wplayer.fragment.ItemFragment;
 import org.jiaoyajing.dizner.wplayer.javabean.Mp3Info;
 import org.jiaoyajing.dizner.wplayer.util.ThemeImpl;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -102,9 +104,10 @@ public class NetListActivity extends BaseActiyvity implements ThemeImpl {
 
     }
 
+
     @Override
-    public BaseActiyvity getSelf() {
-        return this;
+    public void getSelf(List<BaseActiyvity> list) {
+        list.add(this);
     }
 
 

@@ -6,6 +6,8 @@ import org.jiaoyajing.dizner.wplayer.R;
 import org.jiaoyajing.dizner.wplayer.fragment.PListFragment;
 import org.jiaoyajing.dizner.wplayer.javabean.Mp3Info;
 
+import java.util.List;
+
 public class ListActivity extends BaseActiyvity {
     private PListFragment fragment;
     private int listId;
@@ -40,8 +42,8 @@ public class ListActivity extends BaseActiyvity {
     }
 
     @Override
-    public BaseActiyvity getSelf() {
-        return this;
+    public void getSelf(List<BaseActiyvity> list) {
+        list.add(this);
     }
 
     @Override

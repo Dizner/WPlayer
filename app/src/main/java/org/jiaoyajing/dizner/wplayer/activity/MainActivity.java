@@ -202,7 +202,7 @@ public class MainActivity extends BaseActiyvity implements ThemeImpl {
 //                        args.putLong("time",time);
 //                        mainFragment.setArguments(args);
                         if (MainActivity.this != null) {
-                            Glide.with(MainActivity.this).load(obj.getSongPic()).into(songimg);
+                            Glide.with(getApplicationContext()).load(obj.getSongPic()).into(songimg);
                         }
                         if (playService.isPlaying()) {
                             startbtu.setImageResource(R.mipmap.puse_01);
@@ -245,9 +245,10 @@ public class MainActivity extends BaseActiyvity implements ThemeImpl {
 //        changeUIStatusOnPlay(position);
     }
 
+
     @Override
-    public BaseActiyvity getSelf() {
-        return this;
+    public void getSelf(List<BaseActiyvity> list) {
+        list.add(this);
     }
 
     @OnClick({R.id.prebtu, R.id.startbtu, R.id.nextbtu, R.id.songimg})

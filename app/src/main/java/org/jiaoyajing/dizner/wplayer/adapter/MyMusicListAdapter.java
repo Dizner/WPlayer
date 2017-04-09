@@ -1,6 +1,7 @@
 package org.jiaoyajing.dizner.wplayer.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyMusicListAdapter extends BaseAdapter {
-    private Activity context;
+    private Context context;
     private List<Mp3Info> mp3Infos;
     private OnClick click;
     public MyMusicListAdapter(Activity context, List<Mp3Info> mp3Infos,OnClick click) {
